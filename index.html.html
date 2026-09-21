@@ -1,0 +1,573 @@
+```html
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azamjon | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080b14;
+    color: white;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 8%;
+    background: #080b14dd;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #00d9ff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    background:
+        radial-gradient(circle at 50% 40%, #123b68 0%, #080b14 55%);
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #00d9ff;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    background: #00d9ff;
+    color: #001018;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px #00d9ff;
+}
+
+section {
+    padding: 90px 8%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 38px;
+    margin-bottom: 40px;
+    color: #00d9ff;
+}
+
+.about {
+    max-width: 800px;
+    margin: auto;
+    color: #bbb;
+    line-height: 1.8;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 280px;
+    padding: 30px;
+    background: #111725;
+    border: 1px solid #26344d;
+    border-radius: 20px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #00d9ff;
+    box-shadow: 0 0 25px #00d9ff33;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.card p {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+/* KARTOCHKA ICHIDAGI NATIJA */
+#projectResult {
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding: 30px;
+    background: #111725;
+    border: 1px solid #26344d;
+    border-radius: 20px;
+    display: none;
+}
+
+#projectResult h3 {
+    color: #00d9ff;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.botLink {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 8px;
+    background: #00d9ff;
+    color: #001018;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.botLink:hover {
+    box-shadow: 0 0 20px #00d9ff;
+}
+
+.skills {
+    max-width: 700px;
+    margin: auto;
+}
+
+.skill {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.bar {
+    height: 10px;
+    background: #222b3d;
+    border-radius: 10px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: #00d9ff;
+    border-radius: 10px;
+}
+
+.contact {
+    max-width: 600px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+    background: #111725;
+    border: 1px solid #26344d;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+}
+
+textarea {
+    height: 130px;
+    resize: none;
+}
+
+#sendBtn {
+    position: relative;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    border-top: 1px solid #182033;
+}
+
+#top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border: none;
+    background: #00d9ff;
+    padding: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width:700px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    nav {
+        padding: 15px;
+    }
+
+    nav a {
+        margin-left: 8px;
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Azamjon</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+
+<section class="hero" id="home">
+    <div>
+        <h1>Salom, men <span>Azamjon</span></h1>
+        <p>Web Developer | Python Developer | Creator</p>
+
+        <a href="#projects" class="btn">Loyihalarim</a>
+        <a href="#contact" class="btn">Bog'lanish</a>
+    </div>
+</section>
+
+
+<section id="about">
+    <h2>Men haqimda</h2>
+
+    <div class="about">
+        <p>
+            Salom! Men Azamjonman. Men dasturlash, web saytlar
+            yaratish va yangi texnologiyalar bilan ishlashga qiziqaman.
+            HTML, CSS, JavaScript va Python yordamida turli loyihalar
+            yarataman.
+        </p>
+    </div>
+</section>
+
+
+<section id="projects">
+    <h2>Loyihalarim</h2>
+
+    <div class="cards">
+
+        <!-- TELEGRAM BOT -->
+        <div class="card" onclick="showBots()">
+            <h3>🤖 Telegram Bot</h3>
+            <p>
+                Mening Telegram botlarim.
+                Bosib ko'ring.
+            </p>
+        </div>
+
+        <!-- WEB SITE -->
+        <div class="card" onclick="showWeb()">
+            <h3>🌐 Web Site</h3>
+            <p>
+                HTML, CSS va JavaScript yordamida
+                yaratgan saytlarim.
+            </p>
+        </div>
+
+        <!-- PYTHON -->
+        <div class="card" onclick="showPython()">
+            <h3>🐍 Python</h3>
+            <p>
+                Python dasturlash tilidagi
+                loyihalarim.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- NATIJA SHU YERDA CHIQADI -->
+    <div id="projectResult"></div>
+
+</section>
+
+
+<section id="skills">
+    <h2>Ko'nikmalar</h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            HTML
+            <div class="bar">
+                <div class="progress" style="width:90%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            CSS
+            <div class="bar">
+                <div class="progress" style="width:80%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            JavaScript
+            <div class="bar">
+                <div class="progress" style="width:65%"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            Python
+            <div class="bar">
+                <div class="progress" style="width:75%"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="contact">
+    <h2>Bog'lanish</h2>
+
+    <div class="contact">
+        <input type="text" id="name" placeholder="Ismingiz">
+        <input type="email" id="email" placeholder="Email">
+        <textarea id="message" placeholder="Xabaringiz"></textarea>
+
+        <button class="btn" id="sendBtn" onclick="sendMessage()">
+            Yuborish
+        </button>
+    </div>
+</section>
+
+
+<footer>
+    © 2026 Azamjon. Barcha huquqlar himoyalangan.
+</footer>
+
+
+<button id="top" onclick="goTop()">↑</button>
+
+
+<script>
+
+/* =========================
+   TELEGRAM BOTLAR
+========================= */
+
+function showBots() {
+
+    let result = document.getElementById("projectResult");
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>🤖 Mening Telegram botlarim</h3>
+
+        <a class="botLink"
+           href="https://t.me/yordamchi_bot"
+           target="_blank">
+           🤖 Yordamchi Bot
+        </a>
+
+        <a class="botLink"
+           href="https://t.me/HMAM_ZN_bot"
+           target="_blank">
+           🤖 HMAM.ZN
+        </a>
+    `;
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+/* =========================
+   WEB SAYTLAR
+========================= */
+
+function showWeb() {
+
+    let result = document.getElementById("projectResult");
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>🌐 Web loyihalarim</h3>
+
+        <p style="color:#aaa; line-height:1.8;">
+            HTML, CSS va JavaScript yordamida
+            zamonaviy web saytlar yarataman.
+        </p>
+    `;
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+/* =========================
+   PYTHON LOYIHALAR
+========================= */
+
+function showPython() {
+
+    let result = document.getElementById("projectResult");
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>🐍 Python loyihalarim</h3>
+
+        <p style="color:#aaa; line-height:1.8;">
+            Python yordamida Telegram botlar,
+            kichik dasturlar va turli mashqlar yarataman.
+        </p>
+    `;
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+/* =========================
+   YUBORISH TUGMASI
+========================= */
+
+let sendBtn = document.getElementById("sendBtn");
+
+function sendMessage() {
+
+    let name = document.getElementById("name").value;
+
+    if (name == "") {
+
+        moveButton();
+
+    } else {
+
+        alert(
+            "Rahmat, " +
+            name +
+            "! Xabaringiz yuborildi."
+        );
+
+    }
+}
+
+function moveButton() {
+
+    let x = Math.random() * 300 - 150;
+    let y = Math.random() * 150 - 75;
+
+    sendBtn.style.transform =
+        "translate(" + x + "px, " + y + "px)";
+}
+
+sendBtn.addEventListener("mouseenter", function() {
+
+    let name = document.getElementById("name").value;
+
+    if (name == "") {
+        moveButton();
+    }
+
+});
+
+
+/* =========================
+   YUQORIGA QAYTISH
+========================= */
+
+window.onscroll = function() {
+
+    if (document.documentElement.scrollTop > 300) {
+
+        document.getElementById("top").style.display =
+            "block";
+
+    } else {
+
+        document.getElementById("top").style.display =
+            "none";
+
+    }
+
+};
+
+function goTop() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+```
