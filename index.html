@@ -1,35 +1,3 @@
-Skip to content
-bgmtmu7-rgb
-azamjon-portfolio
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security and quality
-Insights
-Settings
-Files
-Go to file
-t
-T
-index.html
-azamjon-portfolio
-/index.html
-bgmtmu7-rgb
-bgmtmu7-rgb
-Rename index.html.html to index.html
-07e0031
- · 
-1 hour ago
-
-Code
-
-Blame
-573 lines (444 loc) · 10.3 KB
-```html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -179,7 +147,6 @@ h2 {
     line-height: 1.6;
 }
 
-/* KARTOCHKA ICHIDAGI NATIJA */
 #projectResult {
     max-width: 800px;
     margin: 40px auto 0;
@@ -279,6 +246,35 @@ footer {
     display: none;
 }
 
+/* ILONCHA O'YINI */
+
+.game {
+    text-align: center;
+}
+
+#gameCanvas {
+    background: #05080f;
+    border: 2px solid #00d9ff;
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+.score {
+    color: #00d9ff;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.game button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background: #00d9ff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 @media(max-width:700px) {
     .hero h1 {
         font-size: 40px;
@@ -291,6 +287,11 @@ footer {
     nav a {
         margin-left: 8px;
         font-size: 13px;
+    }
+
+    #gameCanvas {
+        width: 300px;
+        height: 300px;
     }
 }
 </style>
@@ -310,7 +311,6 @@ footer {
     </div>
 </nav>
 
-
 <section class="hero" id="home">
     <div>
         <h1>Salom, men <span>Azamjon</span></h1>
@@ -320,7 +320,6 @@ footer {
         <a href="#contact" class="btn">Bog'lanish</a>
     </div>
 </section>
-
 
 <section id="about">
     <h2>Men haqimda</h2>
@@ -335,31 +334,27 @@ footer {
     </div>
 </section>
 
-
 <section id="projects">
     <h2>Loyihalarim</h2>
 
     <div class="cards">
 
-        <!-- TELEGRAM BOT -->
-        <div class="card" onclick="showBots()">
+        <div class="card" onclick="showBot()">
             <h3>🤖 Telegram Bot</h3>
             <p>
-                Mening Telegram botlarim.
+                Mening Telegram botim.
                 Bosib ko'ring.
             </p>
         </div>
 
-        <!-- WEB SITE -->
-        <div class="card" onclick="showWeb()">
-            <h3>🌐 Web Site</h3>
+        <div class="card" onclick="showSnake()">
+            <h3>🐍 Iloncha o'yini</h3>
             <p>
-                HTML, CSS va JavaScript yordamida
-                yaratgan saytlarim.
+                JavaScript yordamida
+                yaratilgan Snake o'yini.
             </p>
         </div>
 
-        <!-- PYTHON -->
         <div class="card" onclick="showPython()">
             <h3>🐍 Python</h3>
             <p>
@@ -370,11 +365,9 @@ footer {
 
     </div>
 
-    <!-- NATIJA SHU YERDA CHIQADI -->
     <div id="projectResult"></div>
 
 </section>
-
 
 <section id="skills">
     <h2>Ko'nikmalar</h2>
@@ -412,7 +405,6 @@ footer {
     </div>
 </section>
 
-
 <section id="contact">
     <h2>Bog'lanish</h2>
 
@@ -427,67 +419,35 @@ footer {
     </div>
 </section>
 
-
 <footer>
     © 2026 Azamjon. Barcha huquqlar himoyalangan.
 </footer>
 
-
 <button id="top" onclick="goTop()">↑</button>
-
 
 <script>
 
-/* =========================
-   TELEGRAM BOTLAR
-========================= */
+/* TELEGRAM BOT */
 
-function showBots() {
+function showBot() {
 
     let result = document.getElementById("projectResult");
 
     result.style.display = "block";
 
     result.innerHTML = `
-        <h3>🤖 Mening Telegram botlarim</h3>
+        <h3>🤖 Mening Telegram botim</h3>
 
-        <a class="botLink"
-           href="https://t.me/yordamchi_bot"
-           target="_blank">
-           🤖 Yordamchi Bot
-        </a>
-
-        <a class="botLink"
-           href="https://t.me/HMAM_ZN_bot"
-           target="_blank">
-           🤖 HMAM.ZN
-        </a>
-    `;
-
-    result.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-}
-
-
-/* =========================
-   WEB SAYTLAR
-========================= */
-
-function showWeb() {
-
-    let result = document.getElementById("projectResult");
-
-    result.style.display = "block";
-
-    result.innerHTML = `
-        <h3>🌐 Web loyihalarim</h3>
-
-        <p style="color:#aaa; line-height:1.8;">
-            HTML, CSS va JavaScript yordamida
-            zamonaviy web saytlar yarataman.
+        <p style="color:#aaa; margin-bottom:20px;">
+            Savollarga javob beruvchi va qiziqarli
+            funksiyalarga ega Telegram bot.
         </p>
+
+        <a class="botLink"
+           href="https://t.me/kerakli_bot"
+           target="_blank">
+           🚀 Botni ochish
+        </a>
     `;
 
     result.scrollIntoView({
@@ -497,9 +457,176 @@ function showWeb() {
 }
 
 
-/* =========================
-   PYTHON LOYIHALAR
-========================= */
+/* ILONCHA O'YINI */
+
+function showSnake() {
+
+    let result = document.getElementById("projectResult");
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>🐍 Iloncha o'yini</h3>
+
+        <div class="game">
+
+            <div class="score">
+                Ball: <span id="score">0</span>
+            </div>
+
+            <canvas id="gameCanvas"
+                    width="320"
+                    height="320">
+            </canvas>
+
+            <br>
+
+            <button onclick="startSnake()">
+                ▶ Boshlash
+            </button>
+
+            <p style="color:#aaa;margin-top:15px;">
+                Klaviaturadagi ⬆️ ⬇️ ⬅️ ➡️ tugmalaridan foydalaning.
+            </p>
+
+        </div>
+    `;
+
+    result.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    startSnake();
+}
+
+
+let snakeInterval;
+let snake;
+let food;
+let direction;
+let score;
+
+function startSnake() {
+
+    clearInterval(snakeInterval);
+
+    snake = [
+        {x:160, y:160},
+        {x:140, y:160},
+        {x:120, y:160}
+    ];
+
+    food = {
+        x: Math.floor(Math.random() * 16) * 20,
+        y: Math.floor(Math.random() * 16) * 20
+    };
+
+    direction = "RIGHT";
+    score = 0;
+
+    document.getElementById("score").innerText = score;
+
+    document.onkeydown = function(e) {
+
+        if(e.key === "ArrowUp" && direction !== "DOWN")
+            direction = "UP";
+
+        if(e.key === "ArrowDown" && direction !== "UP")
+            direction = "DOWN";
+
+        if(e.key === "ArrowLeft" && direction !== "RIGHT")
+            direction = "LEFT";
+
+        if(e.key === "ArrowRight" && direction !== "LEFT")
+            direction = "RIGHT";
+    };
+
+    snakeInterval = setInterval(drawSnake, 120);
+}
+
+
+function drawSnake() {
+
+    let canvas = document.getElementById("gameCanvas");
+
+    if(!canvas) {
+        clearInterval(snakeInterval);
+        return;
+    }
+
+    let ctx = canvas.getContext("2d");
+
+    let head = {
+        x: snake[0].x,
+        y: snake[0].y
+    };
+
+    if(direction === "UP") head.y -= 20;
+    if(direction === "DOWN") head.y += 20;
+    if(direction === "LEFT") head.x -= 20;
+    if(direction === "RIGHT") head.x += 20;
+
+    if(
+        head.x < 0 ||
+        head.y < 0 ||
+        head.x >= 320 ||
+        head.y >= 320 ||
+        snake.some(part => part.x === head.x && part.y === head.y)
+    ) {
+
+        clearInterval(snakeInterval);
+
+        alert("O'yin tugadi! Ball: " + score);
+
+        return;
+    }
+
+    snake.unshift(head);
+
+    if(head.x === food.x && head.y === food.y) {
+
+        score++;
+
+        document.getElementById("score").innerText = score;
+
+        food = {
+            x: Math.floor(Math.random() * 16) * 20,
+            y: Math.floor(Math.random() * 16) * 20
+        };
+
+    } else {
+
+        snake.pop();
+
+    }
+
+    ctx.fillStyle = "#05080f";
+    ctx.fillRect(0, 0, 320, 320);
+
+    ctx.fillStyle = "#00d9ff";
+
+    snake.forEach(part => {
+        ctx.fillRect(
+            part.x + 1,
+            part.y + 1,
+            18,
+            18
+        );
+    });
+
+    ctx.fillStyle = "#ff3158";
+
+    ctx.fillRect(
+        food.x + 2,
+        food.y + 2,
+        16,
+        16
+    );
+}
+
+
+/* PYTHON */
 
 function showPython() {
 
@@ -523,9 +650,7 @@ function showPython() {
 }
 
 
-/* =========================
-   YUBORISH TUGMASI
-========================= */
+/* YUBORISH */
 
 let sendBtn = document.getElementById("sendBtn");
 
@@ -533,7 +658,7 @@ function sendMessage() {
 
     let name = document.getElementById("name").value;
 
-    if (name == "") {
+    if(name == "") {
 
         moveButton();
 
@@ -561,20 +686,18 @@ sendBtn.addEventListener("mouseenter", function() {
 
     let name = document.getElementById("name").value;
 
-    if (name == "") {
+    if(name == "") {
         moveButton();
     }
 
 });
 
 
-/* =========================
-   YUQORIGA QAYTISH
-========================= */
+/* YUQORIGA */
 
 window.onscroll = function() {
 
-    if (document.documentElement.scrollTop > 300) {
+    if(document.documentElement.scrollTop > 300) {
 
         document.getElementById("top").style.display =
             "block";
@@ -600,5 +723,4 @@ function goTop() {
 </script>
 
 </body>
-</html>
-```
+</html> 
